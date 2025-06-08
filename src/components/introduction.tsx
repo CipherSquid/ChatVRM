@@ -92,7 +92,9 @@ export const Introduction = ({
             差別的または暴力的な発言、特定の人物を貶めるような発言を、意図的に誘導しないでください。また、VRMモデルを使ってキャラクターを差し替える際はモデルの利用条件に従ってください。
           </div>
         </div>
-
+        
+        {/* Koeiromapを無効化 */}
+        {/*
         <div className="my-24">
           <div className="my-8 font-bold typography-20 text-secondary">
             Koeiromap APIキー
@@ -112,6 +114,8 @@ export const Introduction = ({
             />
           </div>
         </div>
+        */}
+
         <div className="my-24">
           <div className="my-8 font-bold typography-20 text-secondary">
             OpenAI APIキー
