@@ -1,4 +1,11 @@
-# ChatVRM
+# Virtual Assistant with ChatVRM
+ChatVRMにMCPクライアントの機能と定期実行の機能を追加するプロジェクト
+
+2025/06/13　AivisSpeach用のコード追加
+2025/06/20 とりあえず音声合成ができるようになった
+
+以下、クローン元のChatVRMについて
+## ChatVRM
 
 ChatVRMは、技術共有およびデモンストレーションを主目的としたプロジェクトです。
 

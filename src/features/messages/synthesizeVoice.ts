@@ -1,33 +1,25 @@
 import { reduceTalkStyle } from "@/utils/reduceTalkStyle";
-import { koeiromapV0 } from "../koeiromap/koeiromap";
 import { TalkStyle } from "../messages/messages";
-
-export async function synthesizeVoice(
-  message: string,
-  speakerX: number,
-  speakerY: number,
-  style: TalkStyle
-) {
-  const koeiroRes = await koeiromapV0(message, speakerX, speakerY, style);
-  return { audio: koeiroRes.audio };
-}
+import { create_query } from "@/features/avisspeech/aivisSpeach";
 
 export async function synthesizeVoiceApi(
   message: string,
-  speakerX: number,
-  speakerY: number,
+  //speakerX: number,
+  //speakerY: number,
   style: TalkStyle,
-  apiKey: string
+  //apiKey: string
 ) {
   // Free向けに感情を制限する
-  const reducedStyle = reduceTalkStyle(style);
+  //const reducedStyle = reduceTalkStyle(style);
+  const speaker_id = 888753761; // あとで環境変数にする
+  //const req_query = await create_query(message, speaker_id);
 
   const body = {
     message: message,
-    speakerX: speakerX,
-    speakerY: speakerY,
-    style: reducedStyle,
-    apiKey: apiKey,
+    //speakerX: speakerX,
+    //speakerY: speakerY,
+    style: speaker_id,
+    //apiKey: apiKey,
   };
 
   const res = await fetch("/api/tts", {
@@ -37,7 +29,7 @@ export async function synthesizeVoiceApi(
     },
     body: JSON.stringify(body),
   });
-  const data = (await res.json()) as any;
+  const data = await res.blob();
 
-  return { audio: data.audio };
+  return { audio: data };
 }
